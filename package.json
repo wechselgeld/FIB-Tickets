@@ -1,0 +1,36 @@
+{
+  "name": "djs-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppauel/djs-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppauel/djs-template/issues"
+  },
+  "homepage": "https://github.com/ppauel/djs-template#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.13.0-dev.1648515278-ac4bc3a",
+    "@discordjs/rest": "^0.4.0-dev.1648515278-ac4bc3a",
+    "asure": "^0.1.7",
+    "discord-api-types": "^0.30.0",
+    "discord-logs": "^2.0.1",
+    "discord-transcripts": "^3.6.4",
+    "discord.js": "^14.0.0-dev.1649505803-3c0bbac",
+    "dotenv": "^10.0.0",
+    "moment": "^2.29.3",
+    "randomstring": "^1.2.2",
+    "sequelize": "^6.19.0",
+    "sqlite3": "^5.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0"
+  }
+}

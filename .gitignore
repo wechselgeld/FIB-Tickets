@@ -1,0 +1,6 @@
+# Dependency directories
+node_modules/
+fib.sqlite
+config.json
+.eslintrc.json
+.env
