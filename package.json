@@ -25,6 +25,7 @@
     "discord-transcripts": "^3.6.4",
     "discord.js": "^14.0.0-dev.1649505803-3c0bbac",
     "dotenv": "^10.0.0",
+    "eslint-config-semistandard": "^16.0.0",
     "moment": "^2.29.3",
     "randomstring": "^1.2.2",
     "sequelize": "^6.19.0",

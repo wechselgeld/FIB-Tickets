@@ -7,6 +7,7 @@ const {
 	ButtonBuilder,
 } = require('discord.js');
 const models = require('../database/models');
+const errors = require('../utility/errors');
 const closeTicketButton = require('./closeTicketButton');
 const recruiterPanelButton = require('./recruiterPanelButton');
 const startFormButton = require('./startFormButton');

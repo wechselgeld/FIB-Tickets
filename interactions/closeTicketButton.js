@@ -70,7 +70,7 @@ module.exports = {
 			}
 		});
 
-		const filter = (interaction) => interaction.customId === 'confirmClose' || interaction.customId === 'abortClose';
+		const filter = (collected) => collected.customId === 'confirmClose' || collected.customId === 'abortClose';
 		const collector = interaction.channel.createMessageComponentCollector({
 			filter,
 			time: 15000

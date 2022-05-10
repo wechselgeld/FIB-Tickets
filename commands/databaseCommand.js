@@ -2,7 +2,6 @@ const {
 	SlashCommandBuilder
 } = require('@discordjs/builders');
 const {
-	CommandInteraction,
 	Formatters
 } = require('discord.js');
 const models = require('../database/models');
