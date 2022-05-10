@@ -5,7 +5,8 @@ const {
 	ButtonStyle,
 	ButtonBuilder,
 	Formatters,
-	WebhookClient
+	WebhookClient,
+	ButtonInteraction
 } = require('discord.js');
 const moment = require('moment');
 const config = require('../config.json');
@@ -76,7 +77,7 @@ module.exports = {
 			.setColor(0x5865F2)
 			.setAuthor({
 				name: 'Rückmeldung zu Deiner Bewerbung als Federal Agent',
-				iconURL: 'https://cdn.discordapp.com/emojis/968932942661431296.webp?size=96&quality=lossless'
+				iconURL: 'https://cdn.discordapp.com/emojis/969064745120452720.webp?size=96&quality=lossless'
 			})
 			.setDescription(`Hallo ${firstname},
             Wir schätzen es sehr, dass Du Dir die Zeit für Deine Bewerbung als Federal Agent genommen hast und freuen uns, dass Du das Interesse am Federal Investigation Bureau mit uns teilst.
@@ -85,7 +86,8 @@ module.exports = {
             *Solltest Du weitere Fragen dazu haben, kannst Du diese gern in dem ${Formatters.channelMention(config.channels.questionsChannelId)}-Kanal stellen.*
             
             Weiterhin viel Erfolg wünschen
-            Deine Recruiter des FIB`);
+            Deine Recruiter des FIB`)
+			.setFooter({ text: `Copyright © 2022 newa.media — Alle Rechte vorbehalten\nAngefordert von ${interaction.member.nickname}`, iconURL: interaction.user.displayAvatarURL({ extension: 'png', size: 64 }).toString()({ extension: 'png', size: 64 }).toString() });
 
 		interaction.channel.send({
 			embeds: [embedBuilder]
@@ -108,7 +110,7 @@ module.exports = {
 			.setColor(0x5865F2)
 			.setAuthor({
 				name: 'Blacklist-Eintrag erstellt',
-				iconURL: config.webhooks.iconUrl
+				iconURL: 'https://cdn.discordapp.com/emojis/969064745120452720.webp?size=96&quality=lossless'
 			})
 			.setDescription(`${interaction.user.toString()} hat <t:${moment().unix()}:R> für ${Formatters.userMention(foundTicket.discordId)} einen Blacklist-Eintrag erstellt.`)
 			.setFields({

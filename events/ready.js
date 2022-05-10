@@ -11,7 +11,8 @@ const {
 const {
 	ActivityType,
 	Formatters,
-	WebhookClient
+	WebhookClient,
+	Client
 } = require('discord.js');
 const moment = require('moment');
 const config = require('../config.json');
@@ -61,7 +62,7 @@ module.exports = {
 
 		// Construct the embed
 		embedBuilder
-			.setColor(0x57F287)
+			.setColor(0x5865F2)
 			.setAuthor({
 				name: 'Ticket erstellen',
 				iconURL: 'https://cdn.discordapp.com/emojis/971089139703369838.webp?size=96&quality=lossless'

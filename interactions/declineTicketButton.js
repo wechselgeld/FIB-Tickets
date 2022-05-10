@@ -5,7 +5,8 @@ const {
 	ButtonStyle,
 	ButtonBuilder,
 	Formatters,
-	WebhookClient
+	WebhookClient,
+	ButtonInteraction
 } = require('discord.js');
 const moment = require('moment');
 const config = require('../config.json');
@@ -73,7 +74,7 @@ module.exports = {
 		const embedBuilder = new EmbedBuilder();
 
 		embedBuilder
-			.setColor(0x5865F2)
+			.setColor(0xED4245)
 			.setAuthor({
 				name: 'Neuigkeiten zu Deiner Bewerbung als Federal Agent',
 				iconURL: 'https://cdn.discordapp.com/emojis/968932942711783424.webp?size=96&quality=lossless'
@@ -85,7 +86,8 @@ module.exports = {
             *Bitte beachte, dass Du erst <t:${moment().unix() + 1209600}:R> wieder die Möglichkeit hast, ein Ticket zu erstellen und Dich bei uns zu bewerben.*
             
             Weiterhin viel Erfolg wünschen
-            Deine Recruiter des FIB`);
+            Deine Recruiter des FIB`)
+			.setFooter({ text: `Copyright © 2022 newa.media — Alle Rechte vorbehalten\nAngefordert von ${interaction.member.nickname}`, iconURL: interaction.user.displayAvatarURL({ extension: 'png', size: 64 }).toString() });
 
 		interaction.channel.send({
 			embeds: [embedBuilder]
@@ -105,10 +107,10 @@ module.exports = {
 
 		// The logging webhook
 		embedBuilder
-			.setColor(0x5865F2)
+			.setColor(0xED4245)
 			.setAuthor({
 				name: 'Ticket abgelehnt',
-				iconURL: config.webhooks.iconUrl
+				iconURL: 'https://cdn.discordapp.com/emojis/968932942711783424.webp?size=96&quality=lossless'
 			})
 			.setDescription(`${interaction.user.toString()} hat <t:${moment().unix()}:R> die Bewerbung von ${Formatters.userMention(foundTicket.discordId)} abgelehnt.`)
 			.setFields({

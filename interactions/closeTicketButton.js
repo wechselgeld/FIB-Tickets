@@ -6,7 +6,8 @@ const {
 	ButtonStyle,
 	ButtonBuilder,
 	WebhookClient,
-	Formatters
+	Formatters,
+	ButtonInteraction
 } = require('discord.js');
 const moment = require('moment');
 const config = require('../config.json');
@@ -96,12 +97,13 @@ module.exports = {
 				const embedBuilder = new EmbedBuilder();
 
 				embedBuilder
-					.setColor(0x5865F2)
+					.setColor(0xED4245)
 					.setAuthor({
 						name: 'Das Ticket wird endgültig gelöscht',
 						iconURL: 'https://cdn.discordapp.com/emojis/972559448998543390.webp?size=96&quality=lossless'
 					})
-					.setDescription(`Das Ticket wird in 15 Sekunden gelöscht, da ${collected.user.toString()} die Löschung bestätigt hat. Alle Nachrichten werden anschließend archiviert.`);
+					.setDescription(`Das Ticket wird in 15 Sekunden gelöscht, da ${collected.user.toString()} die Löschung bestätigt hat. Alle Nachrichten werden anschließend archiviert.`)
+					.setFooter({ text: `Copyright © 2022 newa.media — Alle Rechte vorbehalten\nAngefordert von ${interaction.member.nickname}`, iconURL: interaction.user.displayAvatarURL({ extension: 'png', size: 64 }).toString() });
 
 				await collected.channel.send({
 					embeds: [embedBuilder]
@@ -109,7 +111,7 @@ module.exports = {
 
 				setTimeout(async () => {
 					embedBuilder
-						.setColor(0x5865F2)
+						.setColor(0xED4245)
 						.setAuthor({
 							name: 'Ticket gelöscht',
 							iconURL: 'https://cdn.discordapp.com/emojis/972559448998543390.webp?size=96&quality=lossless'

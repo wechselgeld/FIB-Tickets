@@ -62,7 +62,7 @@ module.exports = {
 		const embedBuilder = new EmbedBuilder();
 
 		embedBuilder
-			.setColor(0x5865F2)
+			.setColor(0xEB459E)
 			.setAuthor({
 				name: 'Dein Eignungstest beim Federal Investigation Bureau',
 				iconURL: 'https://cdn.discordapp.com/emojis/970483023512477778.webp?size=96&quality=lossless'

@@ -1,14 +1,8 @@
-<h1 align="center">Welcome to Nightmare - LifeV FIB Ticket Bot 👋</h1>
+<h1 align="center">Nightmare - LifeV FIB Ticket Bot 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.1.6-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/ppauel/djs-template#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.3.6-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/ppauel/djs-template/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
-  <a href="https://www.gnu.org/licenses/agpl-3.0.de.html" target="_blank">
-    <img alt="License: GNU AGPLv3" src="https://img.shields.io/github/license/wechselgeld/Nightmare - LifeV FIB Ticket Bot" />
   </a>
 </p>
 
@@ -16,37 +10,21 @@
 
 ### 🏠 [Homepage](https://github.com/ppauel/djs-template#readme)
 
-## Install
-
-```sh
-npm install
-```
-
-## Run tests
-
-```sh
-npm run test
-```
-
 ## Author
 
 👤 **newa.media, BURST Interactive - präsentiert von wanted Entertainment**
 
-* Website: newa.media
+* Website: https://newa.media
 * Github: [@wechselgeld](https://github.com/wechselgeld)
 
-## 🤝 Contributing
+## Zeig Deine Unterstützung
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ppauel/djs-template/issues). You can also take a look at the [contributing guide](https://github.com/ppauel/djs-template/blob/master/CONTRIBUTING.md).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
+Gib dem Projekt einen ⭐️, wenn Dir die Idee gefällt!
 
 ## 📝 License
-
-Copyright © 2022 [newa.media, BURST Interactive - präsentiert von wanted Entertainment](https://github.com/wechselgeld).<br />
-This project is [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.de.html) licensed.
+ 
+Copyright © 2022 [newa.media, BURST Interactive & wanted Entertainment](https://github.com/wechselgeld).<br />
+Dieses Projekt ist unter der [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.de.html) lizenziert.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+Nur für den internen Gebrauch geeignet. Nicht Multi-Guild fähig und für das Selfhosting gemacht.

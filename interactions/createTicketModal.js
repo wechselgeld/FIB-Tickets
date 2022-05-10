@@ -152,7 +152,7 @@ module.exports = {
 
 		// The embed that will be sent in the created ticket channel
 		embedBuilder
-			.setColor(0x5865F2)
+			.setColor(0xFEE75C)
 			.setAuthor({
 				name: 'Feststellung zur Eignung als Agent',
 				iconURL: 'https://cdn.discordapp.com/emojis/971104113368653894.webp?size=96&quality=lossless'

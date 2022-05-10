@@ -13,7 +13,7 @@ async function send(member, channel) {
 	const embedBuilder = new EmbedBuilder();
 
 	embedBuilder
-		.setColor(0x5865f2)
+		.setColor(0x5865F2)
 		.setAuthor({
 			name: 'Es gibt Neuigkeiten zu Deiner Bewerbung als Federal Agent',
 			iconURL: 'https://cdn.discordapp.com/emojis/971446924651667516.webp?size=96&quality=lossless',

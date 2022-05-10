@@ -67,7 +67,7 @@ module.exports = {
 		const embedBuilder = new EmbedBuilder();
 
 		embedBuilder
-			.setColor(0xFEE75C)
+			.setColor(0xEB459E)
 			.setAuthor({
 				name: 'Los geht\'s',
 				iconURL: 'https://cdn.discordapp.com/emojis/970483023512477778.webp?size=96&quality=lossless'
@@ -728,7 +728,7 @@ module.exports = {
 			bobTheBuilder
 				.setColor(0xFEE75C)
 				.setAuthor({
-					name: 'Antworten',
+					name: 'Deine Antworten im Rückblick',
 					iconURL: 'https://cdn.discordapp.com/emojis/971104113368653894.webp?size=96&quality=lossless'
 				})
 				.setDescription(`Hier findest Du all Deine Antworten, die Du uns gegeben hast.
@@ -753,10 +753,10 @@ module.exports = {
 
 			// The logging webhook
 			bobTheBuilder
-				.setColor(0xFEE75C)
+				.setColor(0xEB459E)
 				.setAuthor({
 					name: 'Eignungstest abgesendet',
-					iconURL: config.webhooks.iconUrl
+					iconURL: ''
 				})
 				.setDescription(`${interaction.user.toString()} hat <t:${moment().unix()}:R> den Eignungstest abgesendet.`)
 				.setFields({

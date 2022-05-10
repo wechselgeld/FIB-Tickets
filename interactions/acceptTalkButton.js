@@ -5,7 +5,8 @@ const {
 	ButtonStyle,
 	ButtonBuilder,
 	Formatters,
-	WebhookClient
+	WebhookClient,
+	ButtonInteraction
 } = require('discord.js');
 const moment = require('moment');
 const config = require('../config.json');
@@ -70,7 +71,8 @@ module.exports = {
             Wir begrüßen Dich im Federal Investigation Bureau, Kollege.
             
             Mit freundlichen Grüßen
-            Deine Recruiter des FIB`);
+            Deine Recruiter des FIB`)
+			.setFooter({ text: `Copyright © 2022 newa.media — Alle Rechte vorbehalten\nAngefordert von ${interaction.member.nickname}`, iconURL: interaction.user.displayAvatarURL({ extension: 'png', size: 64 }).toString() });
 
 		interaction.channel.send({
 			embeds: [embedBuilder]
@@ -93,7 +95,7 @@ module.exports = {
 			.setColor(0x57F287)
 			.setAuthor({
 				name: 'Gespräch angenommen',
-				iconURL: config.webhooks.iconUrl
+				iconURL: 'https://cdn.discordapp.com/emojis/968932942711783424.webp?size=96&quality=lossless'
 			})
 			.setDescription(`${interaction.user.toString()} hat <t:${moment().unix()}:R> das Gespräch mit ${Formatters.userMention(foundTicket.discordId)} angenommen.`)
 			.setFields({

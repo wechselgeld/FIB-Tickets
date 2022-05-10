@@ -5,7 +5,8 @@ const {
 	ButtonStyle,
 	ButtonBuilder,
 	Formatters,
-	WebhookClient
+	WebhookClient,
+	ButtonInteraction
 } = require('discord.js');
 const moment = require('moment');
 const config = require('../config.json');
@@ -68,7 +69,8 @@ module.exports = {
             Du solltest für dieses Gepräch rund 20 Minuten Deiner freien Zeit einplanen. Mehr Informationen zum Gespräch findest Du in dem neu freigeschalteten ${Formatters.channelMention(config.channels.appointmentsChannelId)}-Kanal.
 
             Mit freundlichen Grüßen
-            Deine Recruiter des FIB`);
+            Deine Recruiter des FIB`)
+			.setFooter({ text: `Copyright © 2022 newa.media — Alle Rechte vorbehalten\nAngefordert von ${interaction.member.nickname}`, iconURL: interaction.user.displayAvatarURL({ extension: 'png', size: 64 }).toString() });
 
 		interaction.channel.send({
 			embeds: [embedBuilder]
@@ -91,7 +93,7 @@ module.exports = {
 			.setColor(0x57F287)
 			.setAuthor({
 				name: 'Eignungstest angenommen',
-				iconURL: config.webhooks.iconUrl
+				iconURL: 'https://cdn.discordapp.com/emojis/968932942711783424.webp?size=96&quality=lossless'
 			})
 			.setDescription(`${interaction.user.toString()} hat <t:${moment().unix()}:R> den Eignungstest von ${Formatters.userMention(foundTicket.discordId)} angenommen.`)
 			.setFields({
