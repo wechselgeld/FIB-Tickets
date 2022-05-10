@@ -106,7 +106,9 @@ module.exports = {
 		});
 
 		// The logging webhook
-		embedBuilder
+		const theLoggingEmbed = new EmbedBuilder();
+
+		theLoggingEmbed
 			.setColor(0xED4245)
 			.setAuthor({
 				name: 'Ticket abgelehnt',
@@ -135,7 +137,7 @@ module.exports = {
 				dynamic: true
 			}),
 			username: `${interaction.user.tag} | nightmare API`,
-			embeds: [embedBuilder]
+			embeds: [theLoggingEmbed]
 		});
 	},
 };

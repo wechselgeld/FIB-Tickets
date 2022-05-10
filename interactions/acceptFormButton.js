@@ -89,7 +89,9 @@ module.exports = {
 		});
 
 		// The logging webhook
-		embedBuilder
+		const theLoggingEmbed = new EmbedBuilder();
+
+		theLoggingEmbed
 			.setColor(0x57F287)
 			.setAuthor({
 				name: 'Eignungstest angenommen',
@@ -118,7 +120,7 @@ module.exports = {
 				dynamic: true
 			}),
 			username: `${interaction.user.tag} | nightmare API`,
-			embeds: [embedBuilder]
+			embeds: [theLoggingEmbed]
 		});
 	},
 };

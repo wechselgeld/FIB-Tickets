@@ -110,7 +110,9 @@ module.exports = {
 				});
 
 				setTimeout(async () => {
-					embedBuilder
+					const theLoggingEmbed = new EmbedBuilder();
+
+					theLoggingEmbed
 						.setColor(0xED4245)
 						.setAuthor({
 							name: 'Ticket gelöscht',
@@ -139,7 +141,7 @@ module.exports = {
 							dynamic: true
 						}),
 						username: `${collected.user.tag} | nightmare API`,
-						embeds: [embedBuilder]
+						embeds: [theLoggingEmbed]
 					});
 
 					collected.channel.delete();

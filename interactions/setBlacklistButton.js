@@ -106,7 +106,9 @@ module.exports = {
 		});
 
 		// The logging webhook
-		embedBuilder
+		const theLoggingEmbed = new EmbedBuilder();
+
+		theLoggingEmbed
 			.setColor(0x5865F2)
 			.setAuthor({
 				name: 'Blacklist-Eintrag erstellt',
@@ -135,7 +137,7 @@ module.exports = {
 				dynamic: true
 			}),
 			username: `${interaction.user.tag} | nightmare API`,
-			embeds: [embedBuilder]
+			embeds: [theLoggingEmbed]
 		});
 	},
 };

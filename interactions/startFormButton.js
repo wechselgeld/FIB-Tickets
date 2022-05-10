@@ -756,7 +756,7 @@ module.exports = {
 				.setColor(0xEB459E)
 				.setAuthor({
 					name: 'Eignungstest abgesendet',
-					iconURL: ''
+					iconURL: 'https://cdn.discordapp.com/emojis/970736088404615202.webp?size=96&quality=lossless'
 				})
 				.setDescription(`${interaction.user.toString()} hat <t:${moment().unix()}:R> den Eignungstest abgesendet.`)
 				.setFields({
