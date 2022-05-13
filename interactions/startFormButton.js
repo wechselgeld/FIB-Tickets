@@ -399,7 +399,7 @@ module.exports = {
 					name: 'Schreib uns die Antwort',
 					iconURL: 'https://cdn.discordapp.com/emojis/971104113368653894.webp?size=96&quality=lossless'
 				})
-				.setDescription('Hast Du bereits Erfahrung in staatlichen Behörden? Wenn ja, kannst Du uns die Behörden und den jeweiligen Rang in dieser Behörde auflisten?')
+				.setDescription('Hast Du bereits Erfahrung in staatlichen Behörden? Wenn ja, kannst Du uns die Behörden und Deinen jeweiligen Rang in dieser Behörde auflisten?')
 				.setFooter({
 					text: 'Für diese Frage hast Du fünf Minuten Zeit. Wenn Du noch keine Erfahrung gesammelt hast, sag das auch so.',
 					iconURL: 'https://cdn.discordapp.com/emojis/970492077836210196.webp?size=96&quality=lossless'

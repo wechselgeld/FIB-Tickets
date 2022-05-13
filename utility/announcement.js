@@ -22,11 +22,14 @@ async function send(member, channel) {
         diese Nachricht wurde vom Federal Investigation Bureau-Bewerbungsserver auf LifeV gesendet. Aber nicht ohne Grund — denn es gibt wichtige Neuigkeiten zu Deiner Bewerbung!
         Klicke [auf den blauen Text](${channel.url}), um zu Deinem Ticket-Kanal zu gelangen.`);
 
-	member
-		.send({
+	try {
+		member.send({
 			embeds: [embedBuilder],
-		})
-		.catch(channel.send(member.user.toString()));
+		});
+	}
+	catch (err) {
+		channel.send(member.user.toString());
+	}
 }
 
 exports.send = send;

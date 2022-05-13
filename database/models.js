@@ -56,7 +56,33 @@ const tickets = sequelize.define('tickets', {
 	}
 });
 
+const users = sequelize.define('users', {
+	discordId: {
+		type: Sequelize.STRING,
+		primaryKey: true,
+		defaultValue: 0,
+		allowNull: false
+	},
+
+	timestamp: {
+		type: Sequelize.INTEGER,
+	},
+
+	firstname: {
+		type: Sequelize.STRING,
+	},
+
+	lastname: {
+		type: Sequelize.STRING,
+	},
+
+	age: {
+		type: Sequelize.INTEGER,
+	}
+});
+
 exports.tickets = tickets;
 exports.declined = declined;
 exports.blacklisted = blacklisted;
+exports.users = users;
 exports.sequelize = sequelize;

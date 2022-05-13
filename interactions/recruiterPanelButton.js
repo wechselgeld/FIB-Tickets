@@ -9,6 +9,7 @@ const config = require('../config.json');
 const acceptFormButton = require('./acceptFormButton');
 const acceptTalkButton = require('./acceptTalkButton');
 const declineTicketButton = require('./declineTicketButton');
+const openTicketButton = require('./openTicketButton');
 const setBlacklistButton = require('./setBlacklistButton');
 
 module.exports = {
@@ -47,8 +48,11 @@ module.exports = {
 		const userControlRow = new ActionRowBuilder()
 			.addComponents(setBlacklistButton.data.builder);
 
+		const channelControlRow = new ActionRowBuilder()
+			.addComponents(openTicketButton.data.builder);
+
 		interaction.reply({
-			components: [ticketControlRow, userControlRow],
+			components: [ticketControlRow, userControlRow, channelControlRow],
 			ephemeral: true
 		});
 	},

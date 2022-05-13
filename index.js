@@ -60,7 +60,7 @@ function sendWebhook(error) {
 			name: 'Fehler',
 			iconURL: 'https://cdn.discordapp.com/emojis/965950909463011339.webp?size=96&quality=lossless'
 		})
-		.setDescription(`Es wurde <t:${moment().unix()}:R> Fehler ausgelöst.
+		.setDescription(`Es wurde <t:${moment().unix()}:R> ein Fehler ausgelöst.
 		${Formatters.codeBlock(error)}`);
 
 	new WebhookClient({

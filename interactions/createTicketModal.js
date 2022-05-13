@@ -59,9 +59,9 @@ module.exports = {
 	},
 
 	/**
-     *
-     * @param { ModalSubmitInteraction } interaction
-     */
+	 *
+	 * @param { ModalSubmitInteraction } interaction
+	 */
 	async execute(interaction) {
 		let firstname = interaction.fields.getTextInputValue('ic-firstname');
 		const lastname = interaction.fields.getTextInputValue('ic-lastname');
@@ -142,6 +142,31 @@ module.exports = {
 			ticketId: ticketId,
 			channelId: ticketChannel.id
 		});
+
+		try {
+			await models.users.create({
+				discordId: interaction.user.id,
+				timestamp: moment().unix(),
+				firstname: firstname,
+				lastname: lastname,
+				age: age
+			});
+		}
+		catch (error) {
+			if (error.name === 'SequelizeUniqueConstraintError') {
+				models.users.update({
+					discordId: interaction.user.id,
+					timestamp: moment().unix(),
+					firstname: firstname,
+					lastname: lastname,
+					age: age
+				}, {
+					where: {
+						discordId: interaction.user.id
+					}
+				});
+			}
+		}
 
 		interaction.editReply({
 			content: `Ich habe Deinen Ticket-Kanal mit der ID [${Formatters.inlineCode(ticketId)}](${ticketChannel.url}) erstellt. Klicke [auf den blauen Text](<${ticketChannel.url}>), um den Kanal zu öffnen.`,
