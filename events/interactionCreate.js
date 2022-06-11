@@ -1,5 +1,14 @@
+const { Interaction } = require('discord.js');
+const errors = require('../utility/errors');
+
 module.exports = {
 	name: 'interactionCreate',
+
+	/**
+	 *
+	 * @param { Interaction } interaction
+	 * @returns
+	 */
 	async execute(interaction) {
 		if (interaction.isCommand()) {
 			const command = interaction.client.commands.get(interaction.commandName);
@@ -10,7 +19,7 @@ module.exports = {
 			}
 			catch (error) {
 				console.error(error);
-				await interaction.reply({ content: 'There was an error while executing this command.', ephemeral: true });
+				errors.send(interaction, 'UNKNOWN', error);
 			}
 		}
 		else if (interaction.isMessageComponent()) {
@@ -22,7 +31,7 @@ module.exports = {
 			}
 			catch (error) {
 				console.error(error);
-				await interaction.reply({ content: 'There was an error while responding to this interaction.', ephemeral: true });
+				errors.send(interaction, 'UNKNOWN', error);
 			}
 		}
 		else if (interaction.isModalSubmit()) {
@@ -34,7 +43,7 @@ module.exports = {
 			}
 			catch (error) {
 				console.error(error);
-				await interaction.reply({ content: 'There was an error while responding to this interaction.', ephemeral: true });
+				errors.send(interaction, 'UNKNOWN', error);
 			}
 		}
 	},

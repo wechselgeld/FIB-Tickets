@@ -1,22 +1,22 @@
 const {
 	ModalBuilder,
+	ModalSubmitInteraction,
 	ActionRowBuilder,
 	TextInputBuilder,
 	TextInputStyle,
 	Formatters,
 	ChannelType,
 	PermissionsBitField,
-	WebhookClient
+	WebhookClient,
+	EmbedBuilder,
+	MessageAttachment
 } = require('discord.js');
+const consola = require('consola');
 const moment = require('moment');
 const config = require('../config.json');
 const errors = require('../utility/errors');
 const models = require('../database/models');
 const randomstring = require('randomstring');
-const {
-	EmbedBuilder
-} = require('@discordjs/builders');
-// const asure = require('asure');
 const recruiterPanelButton = require('./recruiterPanelButton');
 const closeTicketButton = require('./closeTicketButton');
 const getFormButton = require('./getFormButton');
@@ -63,8 +63,8 @@ module.exports = {
 	 * @param { ModalSubmitInteraction } interaction
 	 */
 	async execute(interaction) {
-		let firstname = interaction.fields.getTextInputValue('ic-firstname');
-		const lastname = interaction.fields.getTextInputValue('ic-lastname');
+		let firstname = interaction.fields.getTextInputValue('ic-firstname').trim();
+		const lastname = interaction.fields.getTextInputValue('ic-lastname').trim();
 		const age = parseInt(interaction.fields.getTextInputValue('ooc-age'));
 		const ticketId = randomstring.generate({
 			length: 5,
@@ -75,6 +75,8 @@ module.exports = {
 		await interaction.deferReply({
 			ephemeral: true
 		});
+
+		consola.info(`${new moment().format('DD.MM.YYYY HH:ss')} | ${interaction.user.tag} created an ticket with the ID "${ticketId}".`);
 
 		if (firstname.toLowerCase().includes('dr.' || 'prof.')) firstname = firstname.replace('Dr.' || 'Prof.', '');
 
@@ -90,8 +92,33 @@ module.exports = {
 			});
 		}
 
+		try {
+			await models.users.create({
+				discordId: interaction.user.id,
+				timestamp: moment().unix(),
+				firstname: firstname,
+				lastname: lastname,
+				age: age
+			});
+		}
+		catch (error) {
+			if (error.name === 'SequelizeUniqueConstraintError') {
+				models.users.update({
+					discordId: interaction.user.id,
+					timestamp: moment().unix(),
+					firstname: firstname,
+					lastname: lastname,
+					age: age
+				}, {
+					where: {
+						discordId: interaction.user.id
+					}
+				});
+			}
+		}
+
 		// If the person is named like the array
-		if (config.badNames.includes(lastname.toLocaleLowerCase())) {
+		if (config.badNames.some(r => lastname.toLocaleLowerCase().split(' ').indexOf(r) >= 0)) {
 			await models.blacklisted.create({
 				discordId: interaction.user.id,
 				timestamp: moment().unix()
@@ -99,7 +126,13 @@ module.exports = {
 
 			interaction.member.roles.set([config.roles.blacklisted, config.roles.status]);
 
-			return interaction.editReply('Da Du einen Namen besitzt, welcher bei uns auf der Blacklist gesetzt wurde, kannst Du kein Ticket erstellen. Du wurdest somit ebenso auf die Blacklist gesetzt.');
+			const foundStat = await models.statistics.findOne({ where: { statId: 'bot' } });
+
+			if (foundStat) {
+				foundStat.increment('blacklistedCount');
+			}
+
+			return interaction.editReply('Da Du einen Nachnamen besitzt, welcher bei uns im Allgemeinen auf der Blacklist zu finden ist, kannst Du leider kein Ticket erstellen. Wir haben somit einen lokalen Blacklist-Eintrag über Dich erstellt.');
 		}
 
 		// If the person is under 16
@@ -111,7 +144,7 @@ module.exports = {
 
 			interaction.member.roles.set([config.roles.blacklisted, config.roles.status]);
 
-			return interaction.editReply('Da Du zu jung bist, kannst Du kein Ticket erstellen. Du wurdest somit auf die Blacklist gesetzt.');
+			return interaction.editReply('Leider bist Du für das Federal Investigation Bureau noch nicht alt genug. Das OOC-Mindestalter beträgt 16 Jahre. Wir haben solang einen lokalen Blacklist-Eintrag über Dich erstellt.');
 		}
 
 		const ticketChannel = await interaction.guild.channels.create(`ticket-${ticketId}`, {
@@ -143,31 +176,6 @@ module.exports = {
 			channelId: ticketChannel.id
 		});
 
-		try {
-			await models.users.create({
-				discordId: interaction.user.id,
-				timestamp: moment().unix(),
-				firstname: firstname,
-				lastname: lastname,
-				age: age
-			});
-		}
-		catch (error) {
-			if (error.name === 'SequelizeUniqueConstraintError') {
-				models.users.update({
-					discordId: interaction.user.id,
-					timestamp: moment().unix(),
-					firstname: firstname,
-					lastname: lastname,
-					age: age
-				}, {
-					where: {
-						discordId: interaction.user.id
-					}
-				});
-			}
-		}
-
 		interaction.editReply({
 			content: `Ich habe Deinen Ticket-Kanal mit der ID [${Formatters.inlineCode(ticketId)}](${ticketChannel.url}) erstellt. Klicke [auf den blauen Text](<${ticketChannel.url}>), um den Kanal zu öffnen.`,
 			ephemeral: true
@@ -182,21 +190,14 @@ module.exports = {
 				name: 'Feststellung zur Eignung als Agent',
 				iconURL: 'https://cdn.discordapp.com/emojis/971104113368653894.webp?size=96&quality=lossless'
 			})
-			.setDescription('*Wir schätzen es sehr, dass Du das Interesse am Federal Investigation Bureau mit uns teilst. Da wir unsere Auswahl der Bewerber aber stark eingrenzen müssen, haben wir einen Eignungstest entworfen, welchen Du ausfüllen musst, bevor wir ein Gespräch mit Dir führen können. Für diesen Eignungstest benötigst Du in etwa 15 Minuten Deiner freien Zeit. Du solltest außerdem für ein ruhiges Umfeld sorgen.*\n\nDiesen Eignungstest kannst Du anfordern, wenn Du auf "Formular anfordern" klickst.');
-		// .setImage(`attachment://profile-${ticketId}.png`);
-
+			.setDescription('*Wir schätzen es sehr, dass Du das Interesse am Federal Investigation Bureau mit uns teilst. Da wir unsere Auswahl der Bewerber aber stark eingrenzen müssen, haben wir einen Eignungstest entworfen, welchen Du ausfüllen musst, bevor wir ein Gespräch mit Dir führen können. Für diesen Eignungstest benötigst Du in etwa 15 Minuten Deiner freien Zeit. Du solltest währenddessen für ein ruhiges Umfeld sorgen.*\n\nDiesen Eignungstest kannst Du anfordern, wenn Du auf "Formular anfordern" klickst.');
 		const row = new ActionRowBuilder()
 			.addComponents(getFormButton.data.builder, closeTicketButton.data.builder, recruiterPanelButton.data.builder);
-
-		// Create the image with banner in the embed
-		// const bufferImage = await asure.profileImage(interaction.user);
-		// const imageAttachment = new MessageAttachment(bufferImage, `profile-${ticketId}.png`);
 
 		ticketChannel.send({
 			content: interaction.user.toString(),
 			embeds: [embedBuilder],
-			components: [row],
-			// files: [imageAttachment]
+			components: [row]
 		});
 
 		// The logging webhook
@@ -231,5 +232,11 @@ module.exports = {
 			username: `${interaction.user.tag} | nightmare API`,
 			embeds: [embedBuilder]
 		});
+
+		const foundStat = await models.statistics.findOne({ where: { statId: 'bot' } });
+
+		if (foundStat) {
+			foundStat.increment('ticketCount');
+		}
 	},
 };

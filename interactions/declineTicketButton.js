@@ -1,13 +1,12 @@
 const {
-	EmbedBuilder
-} = require('@discordjs/builders');
-const {
 	ButtonStyle,
 	ButtonBuilder,
 	Formatters,
 	WebhookClient,
-	ButtonInteraction
+	ButtonInteraction,
+	EmbedBuilder
 } = require('discord.js');
+const consola = require('consola');
 const moment = require('moment');
 const config = require('../config.json');
 const models = require('../database/models');
@@ -31,7 +30,7 @@ module.exports = {
      * @param { ButtonInteraction } interaction
      */
 	async execute(interaction) {
-		if (!interaction.member.roles.cache.some(role => role.id === config.roles.ticketAccess)) {
+		if (!interaction.member.roles.cache.some(role => role.id === config.roles.botAccess)) {
 			return interaction.reply({
 				content: 'Diese Funktion ist ausschließlich unseren Recruitern zum einfachen verwalten der Tickets vorbehalten.',
 				ephemeral: true
@@ -51,6 +50,8 @@ module.exports = {
 		if (interaction.channel.parentId === config.parents.declinedParentId) return errors.send(interaction, 'ticket', 'TICKET ALREADY DECLINED OR BLACKLISTED');
 
 		const ticketOwner = await interaction.guild.members.fetch(foundTicket.discordId);
+
+		consola.info(`${new moment().format('DD.MM.YYYY HH:ss')} | ${interaction.user.tag} declined the ticket from ${ticketOwner.user.tag}.`);
 
 		try {
 			await models.declined.create({
@@ -139,5 +140,11 @@ module.exports = {
 			username: `${interaction.user.tag} | nightmare API`,
 			embeds: [theLoggingEmbed]
 		});
+
+		const foundStat = await models.statistics.findOne({ where: { statId: 'bot' } });
+
+		if (foundStat) {
+			foundStat.increment('declinedCount');
+		}
 	},
 };

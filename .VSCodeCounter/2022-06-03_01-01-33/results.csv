@@ -1,0 +1,35 @@
+"filename", "language", "JavaScript", "JSON", "Markdown", "comment", "blank", "total"
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\README.md", "Markdown", 0, 0, 20, 0, 10, 30
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\applyCommand.js", "JavaScript", 121, 0, 0, 6, 17, 144
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\databaseCommandgroup.js", "JavaScript", 351, 0, 0, 4, 49, 404
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\statsCommand.js", "JavaScript", 72, 0, 0, 6, 11, 89
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\database\models.js", "JavaScript", 124, 0, 0, 0, 27, 151
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\ecosystem.config.js", "JavaScript", 11, 0, 0, 0, 0, 11
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\guildMemberAdd.js", "JavaScript", 74, 0, 0, 6, 12, 92
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\guildMemberRemove.js", "JavaScript", 23, 0, 0, 5, 5, 33
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\interactionCreate.js", "JavaScript", 38, 0, 0, 0, 3, 41
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\messageCreate.js", "JavaScript", 54, 0, 0, 6, 7, 67
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\ready.js", "JavaScript", 120, 0, 0, 10, 21, 151
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\typingStart.js", "JavaScript", 20, 0, 0, 4, 6, 30
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\index.js", "JavaScript", 88, 0, 0, 7, 15, 110
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\acceptFormButton.js", "JavaScript", 102, 0, 0, 8, 20, 130
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\acceptTalkButton.js", "JavaScript", 103, 0, 0, 8, 21, 132
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\acknowledgeButton.js", "JavaScript", 37, 0, 0, 4, 4, 45
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\closeTicketButton.js", "JavaScript", 145, 0, 0, 5, 21, 171
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\createTicketButton.js", "JavaScript", 64, 0, 0, 8, 6, 78
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\createTicketModal.js", "JavaScript", 206, 0, 0, 12, 25, 243
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\declineTicketButton.js", "JavaScript", 115, 0, 0, 9, 23, 147
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressCriticismButton.js", "JavaScript", 21, 0, 0, 5, 2, 28
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressCriticismModal.js", "JavaScript", 99, 0, 0, 6, 11, 116
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressPraiseButton.js", "JavaScript", 21, 0, 0, 5, 2, 28
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressPraiseModal.js", "JavaScript", 99, 0, 0, 6, 11, 116
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\getFormButton.js", "JavaScript", 92, 0, 0, 4, 12, 108
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\openTicketButton.js", "JavaScript", 65, 0, 0, 4, 11, 80
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\recruiterPanelButton.js", "JavaScript", 53, 0, 0, 4, 9, 66
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\setBlacklistButton.js", "JavaScript", 115, 0, 0, 9, 23, 147
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\startFormButton.js", "JavaScript", 659, 0, 0, 44, 87, 790
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\package.json", "JSON", 0, 36, 0, 0, 1, 37
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\utility\announcement.js", "JavaScript", 23, 0, 0, 7, 6, 36
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\utility\errors.js", "JavaScript", 22, 0, 0, 6, 4, 32
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\utility\logs.js", "JavaScript", 55, 0, 0, 9, 9, 73
+"Total", "-", 3192, 36, 20, 217, 491, 3956

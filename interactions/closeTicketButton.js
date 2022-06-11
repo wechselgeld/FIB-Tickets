@@ -9,9 +9,12 @@ const {
 	Formatters,
 	ButtonInteraction
 } = require('discord.js');
+const discordTranscripts = require('discord-html-transcripts');
+const consola = require('consola');
 const moment = require('moment');
 const config = require('../config.json');
 const models = require('../database/models');
+const errors = require('../utility/errors');
 
 const talkedRecently = new Set();
 
@@ -32,6 +35,10 @@ module.exports = {
      * @param { ButtonInteraction } interaction
      */
 	async execute(interaction) {
+		if (config.devBuild && !config.devAccess.includes(interaction.user.id)) {
+			return await errors.send(interaction, 'BUILD_TYPE', 'Since the active instance is an developer build, some actions can\'t be performed. Please try again later.');
+		}
+
 		const channelId = interaction.channel.id;
 
 		if (talkedRecently.has(channelId)) {
@@ -60,7 +67,7 @@ module.exports = {
 			);
 
 		await interaction.reply({
-			content: 'Bist Du Dir sicher, dass Du das Ticket schließen möchtest?',
+			content: 'Bist Du Dir sicher, dass Du das Ticket schließen möchtest? Diese Aktion ist unwiderruflich und löscht den Kanal und den Chatverlauf somit permanent.',
 			components: [row],
 			ephemeral: true
 		});
@@ -109,6 +116,10 @@ module.exports = {
 					embeds: [embedBuilder]
 				});
 
+				const attachment = await discordTranscripts.createTranscript(interaction.channel);
+
+				consola.info(`${new moment().format('DD.MM.YYYY HH:ss')} | ${interaction.user.tag} closed the ticket from ${await ((await interaction.client.users.fetch(foundTicket.discordId)).tag)}.`);
+
 				setTimeout(async () => {
 					const theLoggingEmbed = new EmbedBuilder();
 
@@ -141,7 +152,8 @@ module.exports = {
 							dynamic: true
 						}),
 						username: `${collected.user.tag} | nightmare API`,
-						embeds: [theLoggingEmbed]
+						embeds: [theLoggingEmbed],
+						files: [attachment]
 					});
 
 					collected.channel.delete();

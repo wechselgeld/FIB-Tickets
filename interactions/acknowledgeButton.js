@@ -38,7 +38,8 @@ module.exports = {
 		});
 
 		interaction.reply({
-			content: `${interaction.user.toString()} hat den Eignungstest als gelesen markiert.`,
+			content: 'Du hast den Eignungstest als gelesen markiert.',
+			ephemeral: true
 		});
 	},
 };

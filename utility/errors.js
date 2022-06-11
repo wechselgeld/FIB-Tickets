@@ -1,5 +1,5 @@
 const {
-	Formatters
+	Formatters, EmbedBuilder
 } = require('discord.js');
 const randomstring = require('randomstring');
 
@@ -7,6 +7,7 @@ const randomstring = require('randomstring');
  * Replies with an error code
  *
  * @param { Interaction } interaction - The interaction
+ * @param { String } type - The error type
  * @param { String } error - The error code
  */
 async function send(interaction, type, error) {
@@ -16,15 +17,26 @@ async function send(interaction, type, error) {
 		charset: 'alphanumeric'
 	});
 
+	const embedBuilder = new EmbedBuilder();
+
+	embedBuilder
+		.setColor(0xED4245)
+		.setAuthor({
+			name: `Fehler (${type.toUpperCase()})`,
+			iconURL: 'https://cdn.discordapp.com/emojis/965950909463011339.webp?size=96&quality=lossless'
+		})
+		.setDescription(`Es wurde ein Fehler ausgelöst, weshalb die Aktion nicht ausgeführt werden kann.
+		${Formatters.codeBlock(error)}`);
+
 	if (interaction.deferred || interaction.replied) {
 		return interaction.followUp({
-			content: `» ${Formatters.inlineCode('ERROR')}   ${Formatters.inlineCode(type.toUpperCase())}   ${Formatters.inlineCode(error)}\nDieser Fehler wurde an die Entwickler weitergeleitet. Deine Ray-ID lautet ${Formatters.inlineCode(rayId)}-D.`,
+			embeds: [embedBuilder],
 			ephemeral: true,
 		});
 	}
 
 	interaction.reply({
-		content: `» ${Formatters.inlineCode('ERROR')}   ${Formatters.inlineCode(type.toUpperCase())}   ${Formatters.inlineCode(error)}\nDieser Fehler wurde an die Entwickler weitergeleitet. Deine Ray-ID lautet ${Formatters.inlineCode(rayId)}-R.`,
+		embeds: [embedBuilder],
 		ephemeral: true,
 	});
 }

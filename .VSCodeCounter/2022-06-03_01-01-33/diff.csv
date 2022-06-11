@@ -1,0 +1,10 @@
+"filename", "language", "JSON", "JavaScript", "comment", "blank", "total"
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\applyCommand.js", "JavaScript", 0, 2, -2, 0, 0
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\statsCommand.js", "JavaScript", 0, 35, 2, 4, 41
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\guildMemberRemove.js", "JavaScript", 0, 23, 5, 5, 33
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\messageCreate.js", "JavaScript", 0, 2, 0, 2, 4
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\typingStart.js", "JavaScript", 0, 20, 4, 6, 30
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\index.js", "JavaScript", 0, 11, 0, 0, 11
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\createTicketModal.js", "JavaScript", 0, 8, -4, 0, 4
+"c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\package.json", "JSON", -1, 0, 0, 0, -1
+"Total", "-", -1, 101, 5, 17, 122

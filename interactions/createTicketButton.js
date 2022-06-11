@@ -6,13 +6,14 @@ const {
 const moment = require('moment');
 const config = require('../config.json');
 const models = require('../database/models');
+const errors = require('../utility/errors');
 const createTicketModal = require('./createTicketModal');
 
 module.exports = {
 	data: {
-		id: 'showModal',
+		id: 'createTicket@button',
 		builder: new ButtonBuilder()
-			.setCustomId('showModal')
+			.setCustomId('createTicket@button')
 			.setLabel('Ticket erstellen')
 			.setEmoji({
 				id: '968931845708349621'
@@ -41,6 +42,12 @@ module.exports = {
 				discordId: member.id
 			}
 		});
+
+		if (config.devBuild) {
+			if (!config.devAccess.includes(interaction.user.id)) {
+				return await errors.send(interaction, 'BUILD_TYPE', 'Since the active instance is an developer build, some actions can\'t be performed. Please try again later.');
+			}
+		}
 
 		// If the person already opened a ticket
 		if (foundTicket) {

@@ -8,6 +8,7 @@ const {
 } = require('discord.js');
 const models = require('../database/models');
 const errors = require('../utility/errors');
+const config = require('../config.json');
 const closeTicketButton = require('./closeTicketButton');
 const recruiterPanelButton = require('./recruiterPanelButton');
 const startFormButton = require('./startFormButton');
@@ -29,6 +30,10 @@ module.exports = {
      * @param { ButtonInteraction } interaction
      */
 	async execute(interaction) {
+		if (config.devBuild && !config.devAccess.includes(interaction.user.id)) {
+			return await errors.send(interaction, 'BUILD_TYPE', 'Since the active instance is an developer build, some actions can\'t be performed. Please try again later.');
+		}
+
 		const firstMessageRow = new ActionRowBuilder()
 			.addComponents(new ButtonBuilder()
 				.setCustomId('ns-getForm')

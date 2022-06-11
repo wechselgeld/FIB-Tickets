@@ -1,0 +1,36 @@
+Date : 2022-06-03 01:01:33
+Directory : c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode
+Total : 8 files,  100 codes, 5 comments, 17 blanks, all 122 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |          7 |        101 |          5 |         17 |        123 |
+| JSON       |          1 |         -1 |          0 |          0 |         -1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                            | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                               |          8 |        100 |          5 |         17 |        122 |
+| commands                                                                                                        |          2 |         37 |          0 |          4 |         41 |
+| events                                                                                                          |          3 |         45 |          9 |         13 |         67 |
+| interactions                                                                                                    |          1 |          8 |         -4 |          0 |          4 |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                        | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\applyCommand.js          | JavaScript |          2 |         -2 |          0 |          0 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\statsCommand.js          | JavaScript |         35 |          2 |          4 |         41 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\guildMemberRemove.js       | JavaScript |         23 |          5 |          5 |         33 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\messageCreate.js           | JavaScript |          2 |          0 |          2 |          4 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\typingStart.js             | JavaScript |         20 |          4 |          6 |         30 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\index.js                          | JavaScript |         11 |          0 |          0 |         11 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\createTicketModal.js | JavaScript |          8 |         -4 |          0 |          4 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\package.json                      | JSON       |         -1 |          0 |          0 |         -1 |
+| Total                                                                                                           |            |        100 |          5 |         17 |        122 |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

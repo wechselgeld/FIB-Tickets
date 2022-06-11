@@ -1,11 +1,12 @@
 const {
-	EmbedBuilder
-} = require('@discordjs/builders');
-const {
 	ButtonStyle,
 	ButtonBuilder,
 	PermissionsBitField,
+	ButtonInteraction,
+	EmbedBuilder
 } = require('discord.js');
+const consola = require('consola');
+const moment = require('moment');
 const models = require('../database/models');
 const errors = require('../utility/errors');
 const config = require('../config.json');
@@ -37,6 +38,8 @@ module.exports = {
 
 		const ticketOwner = await interaction.guild.members.fetch(foundTicket.discordId);
 
+		consola.info(`${new moment().format('DD.MM.YYYY HH:ss')} | ${interaction.user.tag} opened the ticket from ${ticketOwner.user.tag}.`);
+
 		const firstname = ticketOwner.nickname.split(' ')[0] || ticketOwner.user.username;
 
 		const embedBuilder = new EmbedBuilder();
@@ -58,13 +61,13 @@ module.exports = {
 		});
 
 		interaction.reply({
-			content: 'Ich habe das Ticket freigegeben.',
+			content: 'Ich habe das Ticket freigegeben. Die Einstellung wird eventuell bei weiteren Aktionen zurückgesetzt.',
 			ephemeral: true
 		});
 
 		interaction.channel.edit({
 			permissionOverwrites: [{
-				id: interaction.user.id,
+				id: ticketOwner.id,
 				allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages]
 			},
 			{

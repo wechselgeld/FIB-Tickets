@@ -81,8 +81,76 @@ const users = sequelize.define('users', {
 	}
 });
 
+const statistics = sequelize.define('statistics', {
+	statId: {
+		type: Sequelize.STRING,
+		defaultValue: 0,
+	},
+
+	declinedCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	acceptedCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	acceptedTalk: {
+		type: Sequelize.STRING,
+		defaultValue: 0,
+	},
+
+	blacklistedCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	registeredCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	membersCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	startsCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	praisesCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	criticismsCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	statCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	ticketCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	},
+
+	panelOpenCount: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+	}
+});
+
 exports.tickets = tickets;
 exports.declined = declined;
 exports.blacklisted = blacklisted;
 exports.users = users;
 exports.sequelize = sequelize;
+exports.statistics = statistics;

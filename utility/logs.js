@@ -1,7 +1,5 @@
-const {
-	EmbedBuilder
-} = require('@discordjs/builders');
 const config = require('../config.json');
+const { EmbedBuilder } = require('discord.js');
 
 /**
  *

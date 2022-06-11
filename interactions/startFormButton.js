@@ -40,6 +40,10 @@ module.exports = {
      * @param { ButtonInteraction } interaction
      */
 	async execute(interaction) {
+		if (config.devBuild && !config.devAccess.includes(interaction.user.id)) {
+			return await errors.send(interaction, 'BUILD_TYPE', 'Since the active instance is an developer build, some actions can\'t be performed. Please try again later.');
+		}
+
 		if (talkedRecently.has(interaction.user.id)) {
 			return interaction.reply({
 				content: 'Du erledigst derzeit schon den Eignungstest.',
@@ -399,9 +403,9 @@ module.exports = {
 					name: 'Schreib uns die Antwort',
 					iconURL: 'https://cdn.discordapp.com/emojis/971104113368653894.webp?size=96&quality=lossless'
 				})
-				.setDescription('Hast Du bereits Erfahrung in staatlichen Behörden? Wenn ja, kannst Du uns die Behörden und Deinen jeweiligen Rang in dieser Behörde auflisten?')
+				.setDescription('Hast Du bereits Erfahrung in staatlichen Behörden auf LifeV? Wenn ja, kannst Du uns die Behörden und Deinen jeweiligen Rang in dieser Behörde auflisten?')
 				.setFooter({
-					text: 'Für diese Frage hast Du fünf Minuten Zeit. Wenn Du noch keine Erfahrung gesammelt hast, sag das auch so.',
+					text: 'Für diese Frage hast Du fünf Minuten Zeit. Wenn Du noch keine Erfahrung gesammelt hast, sag das auch so. Nur Erfahrung auf LifeV zählt.',
 					iconURL: 'https://cdn.discordapp.com/emojis/970492077836210196.webp?size=96&quality=lossless'
 				})
 				.setThumbnail(icPictureUrl);
@@ -666,7 +670,7 @@ module.exports = {
 					text: 'Für diese Frage hast Du 60 Sekunden Zeit.',
 					iconURL: 'https://cdn.discordapp.com/emojis/970492077836210196.webp?size=96&quality=lossless'
 				})
-				.setThumbnail(oocPictureUrl);
+				.setThumbnail(icPictureUrl);
 
 			await interaction.channel.send({
 				embeds: [embedBuilder],
@@ -732,7 +736,7 @@ module.exports = {
 					iconURL: 'https://cdn.discordapp.com/emojis/971104113368653894.webp?size=96&quality=lossless'
 				})
 				.setDescription(`Hier findest Du all Deine Antworten, die Du uns gegeben hast.
-                Ein Recruiter wird Deinen Eignungstest nun bearbeiten. **Du musst jetzt nur noch auf eine Antwort warten.**`);
+                Ein Recruiter wird Deinen Eignungstest nun bearbeiten. Das einzige, was Du jetzt machen musst, ist auf eine Antwort unserer Recruiter zu warten. Das sollte im Normalfall in ein bis zwei Tagen geschehen sein.\nWenn Du in dieser Zeit noch irgendwelche Fragen hast, kannst Du diese gern in dem ${Formatters.channelMention(config.channels.questionsChannelId)}-Kanal stellen.`);
 
 			await answers.forEach(element => {
 				bobTheBuilder.addFields({
@@ -781,7 +785,7 @@ module.exports = {
 				.addComponents(acknowledgeButton.data.builder);
 
 			webhookChannel.send({
-				content: Formatters.roleMention(config.roles.ticketAccess),
+				content: Formatters.roleMention(config.roles.botAccess),
 				embeds: [bobTheBuilder],
 				components: [row]
 			});

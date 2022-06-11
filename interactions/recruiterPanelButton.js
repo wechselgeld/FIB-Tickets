@@ -11,6 +11,8 @@ const acceptTalkButton = require('./acceptTalkButton');
 const declineTicketButton = require('./declineTicketButton');
 const openTicketButton = require('./openTicketButton');
 const setBlacklistButton = require('./setBlacklistButton');
+const models = require('../database/models');
+const errors = require('../utility/errors');
 
 module.exports = {
 	data: {
@@ -29,7 +31,11 @@ module.exports = {
      * @param { ButtonInteraction } interaction
      */
 	async execute(interaction) {
-		if (!interaction.member.roles.cache.some(role => role.id === config.roles.ticketAccess)) {
+		if (config.devBuild && !config.devAccess.includes(interaction.user.id)) {
+			return await errors.send(interaction, 'BUILD_TYPE', 'Since the active instance is an developer build, some actions can\'t be performed. Please try again later.');
+		}
+
+		if (!interaction.member.roles.cache.some(role => role.id === config.roles.botAccess)) {
 			return interaction.reply({
 				content: 'Diese Funktion ist ausschließlich unseren Recruitern zum einfachen verwalten der Tickets vorbehalten.',
 				ephemeral: true
@@ -55,5 +61,11 @@ module.exports = {
 			components: [ticketControlRow, userControlRow, channelControlRow],
 			ephemeral: true
 		});
+
+		const foundStat = await models.statistics.findOne({ where: { statId: 'bot' } });
+
+		if (foundStat) {
+			foundStat.increment('panelOpenCount');
+		}
 	},
 };

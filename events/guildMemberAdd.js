@@ -8,7 +8,7 @@ const config = require('../config.json');
 
 module.exports = {
 	name: 'guildMemberAdd',
-	once: true,
+	once: false,
 
 	/**
 	 *
@@ -17,25 +17,13 @@ module.exports = {
 	async execute(member) {
 		const client = member.client;
 
+		const foundStat = await models.statistics.findOne({ where: { statId: 'bot' } });
+
+		if (foundStat) {
+			foundStat.increment('membersCount');
+		}
+
 		const foundTicket = await models.tickets.findOne({
-			where: {
-				discordId: member.id
-			}
-		});
-
-		const foundUser = await models.users.findOne({
-			where: {
-				discordId: member.id
-			}
-		});
-
-		const foundDeclined = await models.declined.findOne({
-			where: {
-				discordId: member.id
-			}
-		});
-
-		const foundBlacklisted = await models.blacklisted.findOne({
 			where: {
 				discordId: member.id
 			}
@@ -62,8 +50,14 @@ module.exports = {
 				]
 			});
 
-			foundChannel.send(`Hallo, ${member.user.toString()}! Da Du unser Bewerbungsportal erneut betreten hast und Dein Ticket noch offen ist, habe ich Dir erneut zugriff erteilt.\nDir wurden erneut alle Rollen erteilt, welche Du bereits besaßt.`);
+			foundChannel.send(`Hallo, ${member.user.toString()}! Da Du unser Bewerbungsportal erneut betreten hast und Dein Ticket noch geöffnet ist, habe ich Dir erneut Zugriff erteilt.\nDir wurden erneut alle Rollen erteilt, welche Du bereits besaßt, um Verwechslungen für unsere Recruiter zu vermeiden.`);
 		}
+
+		const foundUser = await models.users.findOne({
+			where: {
+				discordId: member.id
+			}
+		});
 
 		if (foundUser) {
 			if (`${foundUser.firstname} ${foundUser.lastname}`.length >= 29) {
@@ -74,10 +68,21 @@ module.exports = {
 			}
 		}
 
-		// If the person is blacklisted
+		const foundBlacklisted = await models.blacklisted.findOne({
+			where: {
+				discordId: member.id
+			}
+		});
+
 		if (foundBlacklisted) {
 			return member.roles.add([config.roles.blacklisted]);
 		}
+
+		const foundDeclined = await models.declined.findOne({
+			where: {
+				discordId: member.id
+			}
+		});
 
 		// If the person is declined
 		if (foundDeclined) {

@@ -1,0 +1,64 @@
+Date : 2022-06-03 01:01:33
+Directory : c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode
+Total : 33 files,  3248 codes, 217 comments, 491 blanks, all 3956 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         31 |      3,192 |        217 |        480 |      3,889 |
+| JSON       |          1 |         36 |          0 |          1 |         37 |
+| Markdown   |          1 |         20 |          0 |         10 |         30 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                 | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                    |         33 |      3,248 |        217 |        491 |      3,956 |
+| commands                                                                                                             |          3 |        544 |         16 |         77 |        637 |
+| database                                                                                                             |          1 |        124 |          0 |         27 |        151 |
+| events                                                                                                               |          6 |        329 |         31 |         54 |        414 |
+| interactions                                                                                                         |         16 |      1,996 |        141 |        288 |      2,425 |
+| utility                                                                                                              |          3 |        100 |         22 |         19 |        141 |
++----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                             | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\README.md                              | Markdown   |         20 |          0 |         10 |         30 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\applyCommand.js               | JavaScript |        121 |          6 |         17 |        144 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\databaseCommandgroup.js       | JavaScript |        351 |          4 |         49 |        404 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\commands\statsCommand.js               | JavaScript |         72 |          6 |         11 |         89 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\database\models.js                     | JavaScript |        124 |          0 |         27 |        151 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\ecosystem.config.js                    | JavaScript |         11 |          0 |          0 |         11 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\guildMemberAdd.js               | JavaScript |         74 |          6 |         12 |         92 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\guildMemberRemove.js            | JavaScript |         23 |          5 |          5 |         33 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\interactionCreate.js            | JavaScript |         38 |          0 |          3 |         41 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\messageCreate.js                | JavaScript |         54 |          6 |          7 |         67 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\ready.js                        | JavaScript |        120 |         10 |         21 |        151 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\events\typingStart.js                  | JavaScript |         20 |          4 |          6 |         30 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\index.js                               | JavaScript |         88 |          7 |         15 |        110 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\acceptFormButton.js       | JavaScript |        102 |          8 |         20 |        130 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\acceptTalkButton.js       | JavaScript |        103 |          8 |         21 |        132 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\acknowledgeButton.js      | JavaScript |         37 |          4 |          4 |         45 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\closeTicketButton.js      | JavaScript |        145 |          5 |         21 |        171 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\createTicketButton.js     | JavaScript |         64 |          8 |          6 |         78 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\createTicketModal.js      | JavaScript |        206 |         12 |         25 |        243 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\declineTicketButton.js    | JavaScript |        115 |          9 |         23 |        147 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressCriticismButton.js | JavaScript |         21 |          5 |          2 |         28 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressCriticismModal.js  | JavaScript |         99 |          6 |         11 |        116 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressPraiseButton.js    | JavaScript |         21 |          5 |          2 |         28 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\expressPraiseModal.js     | JavaScript |         99 |          6 |         11 |        116 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\getFormButton.js          | JavaScript |         92 |          4 |         12 |        108 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\openTicketButton.js       | JavaScript |         65 |          4 |         11 |         80 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\recruiterPanelButton.js   | JavaScript |         53 |          4 |          9 |         66 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\setBlacklistButton.js     | JavaScript |        115 |          9 |         23 |        147 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\interactions\startFormButton.js        | JavaScript |        659 |         44 |         87 |        790 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\package.json                           | JSON       |         36 |          0 |          1 |         37 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\utility\announcement.js                | JavaScript |         23 |          7 |          6 |         36 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\utility\errors.js                      | JavaScript |         22 |          6 |          4 |         32 |
+| c:\Users\Felix\OneDrive\Desktop\LSPD\Butler Next Gen\FIB - Nightmare - Recode\utility\logs.js                        | JavaScript |         55 |          9 |          9 |         73 |
+| Total                                                                                                                |            |      3,248 |        217 |        491 |      3,956 |
++----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -8,7 +8,7 @@
 
 > Der &#34;macht das Leben einfacher&#34;-Bot für das Federal Investigation Bureau auf LifeV. Versucht, das Alles rund um Bewerbungen zu vereinfachen.
 
-### 🏠 [Homepage](https://github.com/ppauel/djs-template#readme)
+### 🏠 [Homepage](https://github.com/wechselgeld/FIB-Tickets#readme)
 
 ## Author
 

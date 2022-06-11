@@ -1,24 +1,33 @@
-/* eslint-disable no-shadow */
-const {
-	EmbedBuilder
-} = require('@discordjs/builders');
 const {
 	Client,
 	Collection,
 	Partials,
 	IntentsBitField,
 	WebhookClient,
-	Formatters
+	Formatters,
+	EmbedBuilder
 } = require('discord.js');
 const moment = require('moment');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const config = require('./config.json');
+const consola = require('consola');
 
 // Initialization
 const client = new Client({
-	intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.GuildMembers, IntentsBitField.Flags.MessageContent],
-	partials: [Partials.Message, Partials.Channel, Partials.Reaction]
+	intents: [
+		IntentsBitField.Flags.DirectMessages,
+		IntentsBitField.Flags.DirectMessageTyping,
+		IntentsBitField.Flags.Guilds,
+		IntentsBitField.Flags.GuildMessages,
+		IntentsBitField.Flags.GuildMembers,
+		IntentsBitField.Flags.MessageContent
+	],
+	partials: [
+		Partials.Message,
+		Partials.Channel,
+		Partials.User
+	]
 });
 
 dotenv.config();
@@ -79,22 +88,22 @@ process.on('unhandledRejection', error => {
 });
 
 client.on('error', error => {
-	console.log(error);
+	consola.error(error);
 	sendWebhook(error);
 });
 
 process.on('uncaughtException', (error, origin) => {
-	console.log(error, origin);
+	consola.error(error, origin);
 	sendWebhook(error + origin);
 });
 
 process.on('uncaughtExceptionMonitor', (error, origin) => {
-	console.log(error, origin);
+	consola.error(error, origin);
 	sendWebhook(error + origin);
 });
 
 process.on('multipleResolves', (type, promise, reason) => {
-	console.log(type, promise, reason);
+	consola.error(type, promise, reason);
 	sendWebhook(type, promise, reason);
 });
 
